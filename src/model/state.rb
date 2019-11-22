@@ -18,7 +18,7 @@ module Model
   class Grid < Struct.new(:rows, :cols)
   end
 
-  class State < Struct.new(:snake, :food, :grid, :next_direction) #position matters
+  class State < Struct.new(:snake, :food, :grid, :next_direction, :game_over) #position matters
   end
 
   def self.initial_state
@@ -29,7 +29,8 @@ module Model
       ]),
       Model::Food.new(3, 3),
       Model::Grid.new(8, 10),
-      Direction::DOWN
+      Direction::DOWN,
+      false
     )
   end
 end
